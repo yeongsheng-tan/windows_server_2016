@@ -66,15 +66,24 @@ function Install-Packer() {
 # Install VMWare tooling for packer build requirements
 function Install-VMWare-Tooling() {
   # Install VMWare Workstation Player
+  Write-Host "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   Write-Host "Installing VMWare Workstation Player version $vmware_player_version"
+  Write-Host "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   Invoke-WebRequest "$ruckus_rsa_s3_public_download_base_url/vmware-player-$vmware_player_version.exe" -OutFile 'C:\tmp\vmware-player.exe'
   C:\tmp\vmware-player.exe /s /v /qn EULAS_AGREED=1 AUTOSOFTWAREUPDATE=0 ALLUSERS=1 REBOOT=ReallySuppress
+  Write-Host "+++++"
+  Write-Host "DONE."
+  Write-Host "+++++"
 
   # Install VMWare-VIX drivers
+  Write-Host "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   Write-Host "Installing VMWare VIX Driver version $vmware_vix_version"
+  Write-Host "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   Invoke-WebRequest "$ruckus_rsa_s3_public_download_base_url/vmware-vix-$vmware_vix_version.exe" -OutFile 'C:\tmp\vmware-vix.exe'
   C:\tmp\vmware-vix.exe /s /v /qn EULAS_AGREED=1 AUTOSOFTWAREUPDATE=0 ALLUSERS=1 REBOOT=ReallySuppress
-  refreshenv
+  Write-Host "+++++"
+  Write-Host "DONE."
+  Write-Host "+++++"
 
   # Install VMWare Power-CLI for powershell
   cinst -y --force vmware-powercli-psmodule
