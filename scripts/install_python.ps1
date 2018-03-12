@@ -4,5 +4,4 @@ $ErrorActionPreference = "Stop"
 cinst -y --force python2
 $env:Path += ";C:\Python27\"
 refreshenv
-cinst -y --force pip
-# cinst -y --force easy_install
+cinst -y --force --allow-empty-checksums pip
