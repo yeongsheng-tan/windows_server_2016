@@ -19,6 +19,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "winhost"
   config.vm.network "private_network", ip: "192.168.99.103"
   config.vm.network :forwarded_port, guest: 3389, host: 3389
+  config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--memory", 2560]
+  end
 
   # use powershell provisioner
   # vagrant provision --provision-with windows-update

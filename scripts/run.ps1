@@ -106,7 +106,9 @@ Function Install-Azure-CLI()
 # Install MS Hyper-V feature
 Function Install-Hyper-V()
 {
+  # Configure nested virtualization
   cinst -y --force Microsoft-Hyper-V-All -source windowsFeatures
+  # Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
 }
 
 # Install Hashicorp Packer for MS Windows
