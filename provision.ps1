@@ -1,5 +1,6 @@
 # Stop powershell script execution on first error
 $ErrorActionPreference = "Stop"
+
 # Set execution policy of scripts
 Set-ExecutionPolicy Bypass # trust all scripts
 
