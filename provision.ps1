@@ -19,7 +19,6 @@ function Install-Chocolatey() {
   if (!(Test-Path $ChocoInstallPath)) {
     iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
   }
-
   refreshenv
 }
 
@@ -43,7 +42,6 @@ function Install-Python27() {
   refreshenv
 
   cinst -y --force --allow-empty-checksums pip
-  refreshenv
 }
 
 # Install Azure CLI to powershell
